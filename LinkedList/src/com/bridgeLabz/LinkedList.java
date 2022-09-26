@@ -25,19 +25,18 @@ public class LinkedList {
 		}
 	}
 
-	public void pushFirst(Object data) {
+	public void pushLast(Object data) {
 		Node newNode = new Node(data);
-
 		if (head == null)
 			head = newNode;
 		else {
 			Node temp = head;
-			head = newNode;
-			head.next = temp;
-
+			while (temp.next != null) {
+				temp = temp.next;
+			}
+			temp.next = newNode;
 		}
 	}
-
 	public void display() {
 
 		if (head == null) {
@@ -54,9 +53,9 @@ public class LinkedList {
 		//Driving Class
 		System.out.println("Linked List Program:");
 		LinkedList input = new LinkedList();
-		input.pushFirst(70);
-		input.pushFirst(30);
-		input.pushFirst(56);
+		input.pushLast(70);
+		input.pushLast(30);
+		input.pushLast(56);
 		input.display();
 		
 	}
