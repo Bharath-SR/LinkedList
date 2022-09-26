@@ -36,6 +36,19 @@ public class LinkedList {
 
 		}
 	}
+	public void deleteFirst() {
+		if (head == null)
+			System.out.println("No elements in list to delete");
+		else if (head.next == null) {
+		head = null;}
+		else {
+			System.out.println("First element in list deleted");
+			Node temp = head.next;
+			head = temp;
+
+		}
+	}
+
 	public void pushLast(Object data) {
 		Node newNode = new Node(data);
 		if (head == null)
@@ -114,9 +127,11 @@ public class LinkedList {
 		// Driving Class
 		System.out.println("Linked List Program");
 		LinkedList input = new LinkedList();
-		input.pushLast(56);
-		input.pushLast(70);
-		input.insertIndex(1,30);
+		input.pushFirst(56);
+		input.pushFirst(30);
+		input.pushFirst(70);
+		input.display();
+		input.deleteFirst();
 		input.display();
 		
 	}
