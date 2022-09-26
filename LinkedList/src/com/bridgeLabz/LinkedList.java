@@ -187,9 +187,6 @@ public class LinkedList {
 		input.pushFirst(70);
 		input.insertElement(2,40);
 		input.display();
-		System.out.println("Element 40 deleted");
-		input.delete(40);
-		input.display();
 		
 }
 }
