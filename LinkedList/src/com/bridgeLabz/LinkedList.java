@@ -11,39 +11,35 @@ public class LinkedList {
 
 	/**
 	 * 
-	 *UC1-Creating Linked List
+	 *UC2-Ability to add First And Last in Linked List
 	 */
 	
 	public Node head;
 
 	public class Node { 		
-
 		Object data;	
 		Node next;		
-
-		public Node(Object data) {		 
+		public Node(Object data) {		
 			this.data = data;
 
 		}
 	}
-	public void push(int data) {
 
-		Node newNode = new Node(data);		
+	public void pushFirst(Object data) {
+		Node newNode = new Node(data);
 
-		if (head == null) {
+		if (head == null)
 			head = newNode;
-
-		} else {
-			Node temp = head;		
-			while (temp.next != null) {
-				temp = temp.next;
-			}
-			temp.next = newNode;
+		else {
+			Node temp = head;
+			head = newNode;
+			head.next = temp;
 
 		}
 	}
 
 	public void display() {
+
 		if (head == null) {
 			System.out.println("List is empty");
 		}
@@ -56,14 +52,12 @@ public class LinkedList {
 
 	public static void main(String[] args) {
 		//Driving Class
-		System.out.println("Linked List has been created: ");
+		System.out.println("Linked List Program:");
 		LinkedList input = new LinkedList();
-		input.push(56);
-		input.push(30);
-		input.push(70);
+		input.pushFirst(70);
+		input.pushFirst(30);
+		input.pushFirst(56);
 		input.display();
+		
 	}
-
-
-
 }
