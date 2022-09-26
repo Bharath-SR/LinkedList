@@ -37,7 +37,6 @@ public class LinkedList {
 		}
 	}
 
-
 	public void pushLast(Object data) {
 		Node newNode = new Node(data);
 		if (head == null)
@@ -62,6 +61,20 @@ public class LinkedList {
 
 		return count;
 
+	}
+	public void delete(Object data) {
+		Node temp = head, prev =null;
+			if (temp != null && temp.data == data) {
+				head = temp.next;
+				return;
+			}
+			while (temp != null && temp.data !=data) {
+				prev= temp;
+				temp = temp.next;
+			}
+			if(temp == null)
+				return;
+			prev.next=temp.next;
 	}
 
 	public void insertElement(int userIndex, Object data) {
@@ -134,7 +147,7 @@ public class LinkedList {
 
 
 
-	/*public void insertIndex(int userIndex, Object data) {
+	public void insertIndex(int userIndex, Object data) {
 
 		if (userIndex == 0)
 			pushFirst(data);
@@ -163,18 +176,19 @@ public class LinkedList {
 			left.next = newNode;
 		}
 	}
-*/
+
 
 	public static void main(String[] args) {
 		// Driving Class
 		System.out.println("Linked List Program");
 		LinkedList input = new LinkedList();
-		input.pushLast(56);
-		input.pushLast(30);
-		input.pushLast(70);
-		input.display();
-		System.out.println("40 inserted after 30");
+		input.pushFirst(56);
+		input.pushFirst(30);
+		input.pushFirst(70);
 		input.insertElement(2,40);
+		input.display();
+		System.out.println("Element 40 deleted");
+		input.delete(40);
 		input.display();
 		
 }
