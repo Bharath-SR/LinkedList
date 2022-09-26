@@ -47,7 +47,7 @@ public class LinkedList {
 			head = temp;
 
 		}
-	}*/
+	}
 	public void deleteLast() {
 		if (head == null)
 			System.out.println("No elements in list to delete");
@@ -76,9 +76,34 @@ public class LinkedList {
 			temp.next = newNode;
 		}
 	}
+	*/
+	
+	public void search(Object searchData) {
+		if (head.data == searchData)
+			System.out.println(searchData + " is Found in List");
+		else {
+			Node temp = head;
+
+			boolean isFound = false;
+
+			while (temp != null) {
+				if (temp.data == searchData) {
+					isFound = true;
+					break;
+				}
+
+				temp = temp.next;
+			}
+
+			if (isFound == true)
+				System.out.println(searchData + " is Found in List");
+			else
+				System.out.println(searchData + " is not Found in List");
+		}
+	}
 	public void display() {
 		if (head == null)
-			System.out.println("No elements in list to display...");
+			System.out.println("No elements in list to display");
 		else if (head.next == null)
 			System.out.println(head.data);
 		else {
@@ -107,7 +132,7 @@ public class LinkedList {
 
 	}
 
-	public void insertIndex(int userIndex, Object data) {
+	/*public void insertIndex(int userIndex, Object data) {
 
 		if (userIndex == 0)
 			pushFirst(data);
@@ -136,7 +161,7 @@ public class LinkedList {
 			left.next = newNode;
 		}
 	}
-
+*/
 
 	public static void main(String[] args) {
 		// Driving Class
@@ -146,8 +171,6 @@ public class LinkedList {
 		input.pushFirst(30);
 		input.pushFirst(70);
 		input.display();
-		input.deleteLast();
-		input.display();
-		
-	}
+		input.search(56);
+		}
 }
