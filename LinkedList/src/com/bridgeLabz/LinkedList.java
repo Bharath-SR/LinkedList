@@ -172,5 +172,6 @@ public class LinkedList {
 		input.pushFirst(70);
 		input.display();
 		input.search(56);
-		}
+		
+}
 }
