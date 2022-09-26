@@ -36,32 +36,6 @@ public class LinkedList {
 
 		}
 	}
-	/*public void deleteFirst() {
-		if (head == null)
-			System.out.println("No elements in list to delete");
-		else if (head.next == null) {
-		head = null;}
-		else {
-			System.out.println("First element in list deleted");
-			Node temp = head.next;
-			head = temp;
-
-		}
-	}
-	public void deleteLast() {
-		if (head == null)
-			System.out.println("No elements in list to delete");
-		else if (head.next == null)
-			head = null;
-		else {
-			System.out.println("Last element in list is deleted");
-			Node temp = head;
-			while (temp.next.next != null) {
-				temp = temp.next;
-			}
-			temp.next = null;
-		}
-	}
 
 
 	public void pushLast(Object data) {
@@ -76,9 +50,49 @@ public class LinkedList {
 			temp.next = newNode;
 		}
 	}
-	*/
+	public int size() {
+		int count = 0;
+
+		Node temp = head;
+
+		while (temp != null) {
+			count++;
+			temp = temp.next;
+		}
+
+		return count;
+
+	}
+
+	public void insertElement(int userIndex, Object data) {
+
+		if (userIndex == 0)
+			pushFirst(data);
+
+		else if (userIndex == size())
+			pushLast(data);
+		else if (userIndex < 0 || userIndex >= size())
+			System.out.println("Invalid index");
+
+		else {
+
+			Node newNode = new Node(data);
+			int index = 0;
+			//to track left and right
+			Node left = head;
+			Node right = left.next;
+			while (index < userIndex - 1) {
+				left = left.next;
+				right = right.next;
+				index++;
+			}
+			newNode.next = right;
+			left.next = newNode;
+		}
+	}
 	
-	public void search(Object searchData) {
+	
+	/*public void search(Object searchData) {
 		if (head.data == searchData)
 			System.out.println(searchData + " is Found in List");
 		else {
@@ -100,7 +114,7 @@ public class LinkedList {
 			else
 				System.out.println(searchData + " is not Found in List");
 		}
-	}
+	}*/
 	public void display() {
 		if (head == null)
 			System.out.println("No elements in list to display");
@@ -118,19 +132,7 @@ public class LinkedList {
 		}
 	}
 
-	public int size() {
-		int count = 0;
 
-		Node temp = head;
-
-		while (temp != null) {
-			count++;
-			temp = temp.next;
-		}
-
-		return count;
-
-	}
 
 	/*public void insertIndex(int userIndex, Object data) {
 
@@ -167,11 +169,13 @@ public class LinkedList {
 		// Driving Class
 		System.out.println("Linked List Program");
 		LinkedList input = new LinkedList();
-		input.pushFirst(56);
-		input.pushFirst(30);
-		input.pushFirst(70);
+		input.pushLast(56);
+		input.pushLast(30);
+		input.pushLast(70);
 		input.display();
-		input.search(56);
+		System.out.println("40 inserted after 30");
+		input.insertElement(2,40);
+		input.display();
 		
 }
 }
